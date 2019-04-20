@@ -8,11 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
+import Header from "../components/header"
 import "./layout.css"
+import Transition from '../components/transition'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,12 +34,9 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+        <Transition location = {location}>
+          {children}
+        </Transition>
         </div>
       </>
     )}
