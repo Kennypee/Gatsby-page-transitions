@@ -10,9 +10,10 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import Header from "../components/header"
 import "./layout.css"
-import Transition from '../components/transition'
+import PageTransition from 'gatsby-plugin-page-transitions';
+// import Transition from '../components/transition'
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,9 +35,9 @@ const Layout = ({ children, location }) => (
             paddingTop: 0,
           }}
         >
-        <Transition location = {location}>
+        <PageTransition>
           {children}
-        </Transition>
+        </PageTransition>
         </div>
       </>
     )}

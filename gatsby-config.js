@@ -6,11 +6,18 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`, 
+    `gatsby-plugin-page-transitions`,
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: 'gatsby-plugin-page-transitions',
       options: {
-        component: require.resolve(`./src/layouts/index.js`),
-      },
-    },
+        transitionTime: 500
+      }
+    }
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/layouts/index.js`),
+    //   },
+    // },
   ],
 }
